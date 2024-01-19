@@ -22,11 +22,11 @@ public class ClipartService {
     private final CategoryRepository categoryRepository;
 
     @Transactional
-    public Long save(String name, Long memberId, Long categoryId) {
+    public Long save(String name, Long memberId, Long categoryId, String originalFileName, String saveFileName) {
         Member member = memberRepository.findOne(memberId);
         Category category = categoryRepository.findOne(categoryId);
 
-        Clipart clipart = Clipart.create(name,member,category);
+        Clipart clipart = Clipart.create(name,member,category,originalFileName,saveFileName);
         clipartRepository.save(clipart);
 
         return clipart.getId();

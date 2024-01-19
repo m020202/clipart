@@ -25,12 +25,17 @@ public class Clipart {
 
     private LocalDateTime updateDate;
 
-    public static Clipart create(String name, Member member, Category category) {
+    private String originalFileName;
+    private String saveFileName;
+
+    public static Clipart create(String name, Member member, Category category, String originalFileName, String saveFileName) {
         Clipart clipart = new Clipart();
         clipart.setName(name);
         clipart.setMember(member);
         clipart.setCategory(category);
         clipart.setUpdateDate(LocalDateTime.now());
+        clipart.setOriginalFileName(originalFileName);
+        clipart.setSaveFileName(saveFileName);
         return clipart;
     }
 

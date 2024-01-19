@@ -30,6 +30,10 @@ public class QClipart extends EntityPathBase<Clipart> {
 
     public final StringPath name = createString("name");
 
+    public final StringPath originalFileName = createString("originalFileName");
+
+    public final StringPath saveFileName = createString("saveFileName");
+
     public final DateTimePath<java.time.LocalDateTime> updateDate = createDateTime("updateDate", java.time.LocalDateTime.class);
 
     public QClipart(String variable) {
