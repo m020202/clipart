@@ -9,27 +9,24 @@ import java.util.List;
 
 @Entity
 @Getter @Setter
-public class Member {
+public class Category {
     @Id @GeneratedValue
-    @Column(name = "MEMBER_ID")
+    @Column(name = "CATEGORY_ID")
     private Long id;
-
     private String name;
-    private String user_id;
-    private String pwd;
+    private String info;
 
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<Clipart> clipartList = new ArrayList<>();
 
     public void addClipart(Clipart clipart) {
         clipartList.add(clipart);
     }
 
-    public static Member create(String name, String user_id, String pwd) {
-        Member member = new Member();
-        member.setName(name);
-        member.setUser_id(user_id);
-        member.setPwd(pwd);
-        return member;
+    public static Category create(String name, String info) {
+        Category category = new Category();
+        category.setName(name);
+        category.setInfo(info);
+        return category;
     }
 }
