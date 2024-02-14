@@ -4,10 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import study.clipart.domain.Category;
-import study.clipart.domain.Clipart;
 import study.clipart.domain.Member;
+import study.clipart.domain.Post;
 import study.clipart.repository.CategoryRepository;
-import study.clipart.repository.ClipartRepository;
+import study.clipart.repository.PostRepository;
 import study.clipart.repository.MemberRepository;
 
 import java.time.LocalDateTime;
@@ -16,8 +16,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class ClipartService {
-    private final ClipartRepository clipartRepository;
+public class PostService {
+    private final PostRepository postRepository;
     private final MemberRepository memberRepository;
     private final CategoryRepository categoryRepository;
 
@@ -26,24 +26,24 @@ public class ClipartService {
         Member member = memberRepository.findOne(memberId);
         Category category = categoryRepository.findOne(categoryId);
 
-        Clipart clipart = Clipart.create(name,member,category,originalFileName,saveFileName);
-        clipartRepository.save(clipart);
+        Post post = Post.create(name,member,category,originalFileName,saveFileName);
+        postRepository.save(post);
 
-        return clipart.getId();
+        return post.getId();
     }
 
     @Transactional
     public void update(Long id, String name) {
-        Clipart clipart = clipartRepository.findOne(id);
-        clipart.setName(name);
-        clipart.setUpdateDate(LocalDateTime.now());
+        Post post = postRepository.findOne(id);
+        post.setName(name);
+        post.setUpdateDate(LocalDateTime.now());
     }
 
-    public List<Clipart> findAll() {
-        return clipartRepository.findAll();
+    public List<Post> findAll() {
+        return postRepository.findAll();
     }
 
-    public Clipart findOne(Long id) {
-        return clipartRepository.findOne(id);
+    public Post findOne(Long id) {
+        return postRepository.findOne(id);
     }
 }

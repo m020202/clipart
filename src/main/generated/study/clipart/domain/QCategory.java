@@ -20,7 +20,7 @@ public class QCategory extends EntityPathBase<Category> {
 
     public static final QCategory category = new QCategory("category");
 
-    public final ListPath<Clipart, QClipart> clipartList = this.<Clipart, QClipart>createList("clipartList", Clipart.class, QClipart.class, PathInits.DIRECT2);
+    public final ListPath<Post, QPost> clipartList = this.<Post, QPost>createList("clipartList", Post.class, QPost.class, PathInits.DIRECT2);
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 

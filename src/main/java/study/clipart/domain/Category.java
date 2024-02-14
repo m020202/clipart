@@ -17,10 +17,10 @@ public class Category {
     private String info;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    private List<Clipart> clipartList = new ArrayList<>();
+    private List<Post> clipartList = new ArrayList<>();
 
-    public void addClipart(Clipart clipart) {
-        clipartList.add(clipart);
+    public void addClipart(Post post) {
+        clipartList.add(post);
     }
 
     public static Category create(String name, String info) {

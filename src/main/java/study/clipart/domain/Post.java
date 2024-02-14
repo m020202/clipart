@@ -9,9 +9,9 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
-public class Clipart {
+public class Post {
     @Id @GeneratedValue
-    @Column(name = "CLIPART_ID")
+    @Column(name = "POST_ID")
     private Long id;
     private String name;
 
@@ -28,15 +28,15 @@ public class Clipart {
     private String originalFileName;
     private String saveFileName;
 
-    public static Clipart create(String name, Member member, Category category, String originalFileName, String saveFileName) {
-        Clipart clipart = new Clipart();
-        clipart.setName(name);
-        clipart.setMember(member);
-        clipart.setCategory(category);
-        clipart.setUpdateDate(LocalDateTime.now());
-        clipart.setOriginalFileName(originalFileName);
-        clipart.setSaveFileName(saveFileName);
-        return clipart;
+    public static Post create(String name, Member member, Category category, String originalFileName, String saveFileName) {
+        Post post = new Post();
+        post.setName(name);
+        post.setMember(member);
+        post.setCategory(category);
+        post.setUpdateDate(LocalDateTime.now());
+        post.setOriginalFileName(originalFileName);
+        post.setSaveFileName(saveFileName);
+        return post;
     }
 
     public void setCategory(Category category) {
