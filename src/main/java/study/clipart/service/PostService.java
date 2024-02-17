@@ -22,11 +22,11 @@ public class PostService {
     private final CategoryRepository categoryRepository;
 
     @Transactional
-    public Long save(String name, Long memberId, Long categoryId, String originalFileName, String saveFileName) {
+    public Long save(String name, Long memberId, Long categoryId, String content) {
         Member member = memberRepository.findOne(memberId);
         Category category = categoryRepository.findOne(categoryId);
 
-        Post post = Post.create(name,member,category,originalFileName,saveFileName);
+        Post post = Post.create(name,member,category,content);
         postRepository.save(post);
 
         return post.getId();

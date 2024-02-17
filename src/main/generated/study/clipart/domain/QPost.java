@@ -24,15 +24,13 @@ public class QPost extends EntityPathBase<Post> {
 
     public final QCategory category;
 
+    public final StringPath content = createString("content");
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final QMember member;
 
     public final StringPath name = createString("name");
-
-    public final StringPath originalFileName = createString("originalFileName");
-
-    public final StringPath saveFileName = createString("saveFileName");
 
     public final DateTimePath<java.time.LocalDateTime> updateDate = createDateTime("updateDate", java.time.LocalDateTime.class);
 

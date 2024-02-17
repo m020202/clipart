@@ -20,11 +20,11 @@ public class QMember extends EntityPathBase<Member> {
 
     public static final QMember member = new QMember("member1");
 
-    public final ListPath<Post, QPost> clipartList = this.<Post, QPost>createList("clipartList", Post.class, QPost.class, PathInits.DIRECT2);
-
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final StringPath name = createString("name");
+
+    public final ListPath<Post, QPost> postList = this.<Post, QPost>createList("postList", Post.class, QPost.class, PathInits.DIRECT2);
 
     public final StringPath pwd = createString("pwd");
 

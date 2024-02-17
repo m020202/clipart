@@ -23,19 +23,17 @@ public class Post {
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
+    private String content;
+
     private LocalDateTime updateDate;
 
-    private String originalFileName;
-    private String saveFileName;
-
-    public static Post create(String name, Member member, Category category, String originalFileName, String saveFileName) {
+    public static Post create(String name, Member member, Category category, String content) {
         Post post = new Post();
         post.setName(name);
         post.setMember(member);
         post.setCategory(category);
+        post.setContent(content);
         post.setUpdateDate(LocalDateTime.now());
-        post.setOriginalFileName(originalFileName);
-        post.setSaveFileName(saveFileName);
         return post;
     }
 
@@ -46,6 +44,6 @@ public class Post {
 
     public void setMember(Member member) {
         this.member = member;
-        member.addClipart(this);
+        member.addPost(this);
     }
 }

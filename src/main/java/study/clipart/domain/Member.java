@@ -19,10 +19,10 @@ public class Member {
     private String pwd;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-    private List<Post> clipartList = new ArrayList<>();
+    private List<Post> postList = new ArrayList<>();
 
-    public void addClipart(Post post) {
-        clipartList.add(post);
+    public void addPost(Post post) {
+        postList.add(post);
     }
 
     public static Member create(String name, String user_id, String pwd) {
